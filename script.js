@@ -28,15 +28,14 @@ function pusper(m1,m2,m3){
 }
 function laukums(m1,m2,m3){
     const pusper=perimetrs(m1,m2,m3)/2;
-    let tlaukums=Math.sqrt(
-        pusper*((pusper-m1)*(pusper-m2)*(pusper-m3)));
+    let tlaukums=Math.sqrt(pusper*((pusper-m1)*(pusper-m2)*(pusper-m3)));
         console.log(tlaukums);
-        return tlaukums
+        return tlaukums;
 
     
 }
-function irTrijsturis(m1,m2,m3){
-    if(m1<m2+m3&&m2<m1+m3&&m3<m1+m2){
+function trijsturis(m1,m2,m3){
+    if(m1<m2+m3 && m2<m1+m3 && m3<m1+m2){
         return true;
     }else{
         return false;
@@ -44,14 +43,14 @@ function irTrijsturis(m1,m2,m3){
     }
 }
 
-function rzultats(){
+function rezultats(){
     const m=nolasa();
     m1=m.m1;m2=m.m2;m3=m.m33;
     console.log(m1,m2,m3);
     if(!nolasa()){
         t="nekorekti ievadīti.trijstura malu vērtībām ir jābūt lielākām par 0";
     }else{
-        if (irTrijsturis(m1,m2,m3)==false){
+        if (trijsturis(m1,m2,m3)==false){
             t="Trijstūris neeksiste,jo jebkuru 2 malu garumu summai ir jābūt lielākai par trešo malu!";
         }else{
             t="Trijstūris ar malu garumiem"+m1+","+m2+" un "+m3+"eksiste." ;
@@ -76,10 +75,10 @@ function rzultats(){
     function izvadaTekstu(){
         const teksts=rezultats();
         console.log(teksts);
-        const sakne = document.createElimentById ("izvade");
-        const raksti = document.createEliment("P");
-        raksti.innerHTML= teksts;
-        sakne.appendCHild(raksti);
+        const sakne=document.getElementById("izvade");
+        const raksti=document.createElement("p");
+        raksti.innerHTML=teksts;
+        sakne.appendChild(raksti);
     }
 
     
